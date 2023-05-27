@@ -19,14 +19,19 @@ jobs:
         include:
           - laravel: 10.*
             ramsey: ^4.7
+            phpunit: ^10.0
           - laravel: 9.*
             ramsey: ^4.7
+            phpunit: ^9.00
           - laravel: 8.*
             ramsey: ^4.7
+            phpunit: ^8.0
           - laravel: 7.*
             ramsey: ^3.0
+            phpunit: ^8.0
           - laravel: 6.*
             ramsey: ^3.0
+            phpunit: ^8.0
         exclude:
           - laravel: 10.*
             php: 8.0
@@ -73,6 +78,7 @@ jobs:
       - name: Install dependencies
         run: |
           composer require "illuminate/support:${{ matrix.laravel }}" "ramsey/uuid:${{ matrix.ramsey }}"  --no-interaction --no-update
+          composer require "phpunit/phpunit:${{ matrix.phpunit }}" --no-interaction --no-update --dev
           composer update --${{ matrix.stability }} --prefer-dist --no-interaction
 
       - name: List Installed Dependencies
