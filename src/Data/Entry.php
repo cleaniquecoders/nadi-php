@@ -65,7 +65,7 @@ class Entry
      */
     public function __construct($type, array $content, $uuid = null)
     {
-        $this->uuid = $uuid ?: (string) Uuid::uuid7()->toString();
+        $this->uuid = $uuid ?: (string) Uuid::uuid4()->toString();
 
         $this->type = $type;
 
