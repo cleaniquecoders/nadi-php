@@ -19,10 +19,10 @@ jobs:
         include:
           - laravel: 10.*
             ramsey: ^4.7
-            phpunit: ^10.0
+            phpunit: ^10.1
           - laravel: 9.*
             ramsey: ^4.7
-            phpunit: ^9.00
+            phpunit: ^9.0
           - laravel: 8.*
             ramsey: ^4.7
             phpunit: ^8.0
