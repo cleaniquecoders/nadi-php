@@ -77,7 +77,6 @@ jobs:
 
       - name: Install dependencies
         run: |
-          composer remove phuml/phuml --no-interaction --no-update
           composer require "illuminate/support:${{ matrix.laravel }}" "ramsey/uuid:${{ matrix.ramsey }}" --no-interaction --no-update
           composer require "phpunit/phpunit:${{ matrix.phpunit }}" --no-interaction --no-update --dev
           composer update --${{ matrix.stability }} --prefer-dist --no-interaction
