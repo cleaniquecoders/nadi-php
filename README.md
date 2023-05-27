@@ -14,11 +14,13 @@ composer require cleaniquecoders/nadi-php
 
 ## Adding New Metric
 
-You can new metric as you see fit to your application / framework.
+You can add a new metric as you see fit to your application / framework.
 
 Do take note, all metrics will be converted to associative array.
 
-In order to create your own metrics, you need to extends the class `CleaniqueCoders\Nadi\Metric\Base` and implement your metrics details in `metrics()` method.
+In order to create your own metrics, you need to extends the class `CleaniqueCoders\Nadi\Metric\Base` and implement your metrics details in `metrics()` method which always return an array. You may need to define as a dot notation in your metric.
+
+However, Nadi will convert to the associative array.
 
 Following is an example for capture Http request for Laravel framework.
 
