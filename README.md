@@ -8,7 +8,9 @@ Nadi is a simple issue tracker for monitoring your application crashes. This pac
 
 ## Installation
 
-Refer to [documentation](https://docs.nadi.pro) for installation instruction.
+```bash
+composer require cleaniquecoders/nadi-php
+```
 
 ## Adding New Metric
 
