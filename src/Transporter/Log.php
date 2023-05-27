@@ -73,9 +73,10 @@ class Log implements Contract
 
     public function log($key, $data = [])
     {
+        $log = '['.date('Y-m-d H:i:s').'] - ' . $key . ' - ' . json_encode($data) . PHP_EOL;
         file_put_contents(
             $this->getFilePath(),
-            json_encode([$key => $data]),
+            $log,
             FILE_APPEND
         );
     }
