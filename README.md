@@ -82,3 +82,9 @@ If you are adding from Laravel framework, you can simply just add in `config/nad
     \App\Metrics\Http::class,
 ];
 ```
+
+## Class Diagram
+
+<center>
+<img src="nadi-php-uml-diagram.png">
+</center>
