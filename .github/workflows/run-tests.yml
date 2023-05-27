@@ -18,20 +18,15 @@ jobs:
         stability: [prefer-lowest, prefer-stable]
         include:
           - laravel: 10.*
-            testbench: 8.*
-            carbon: ^2.63
+            ramsey: 8.*
           - laravel: 9.*
-            testbench: ^7.24
-            carbon: ^2.62.1
+            ramsey: ^4.7
           - laravel: 8.*
-            testbench: ^6.27
-            carbon: ^2.53.1
+            ramsey: ^4.7
           - laravel: 7.*
-            testbench: ^5.8
-            carbon: ^2.31
+            ramsey: ^4.7
           - laravel: 6.*
-            testbench: 4.*
-            carbon: ^2.31
+            ramsey: ^3.0
         exclude:
           - laravel: 10.*
             php: 8.0
@@ -54,7 +49,7 @@ jobs:
           - laravel: 6.*
             php: 8.0
 
-    name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }} - ${{ matrix.os }}
+    name: P${{ matrix.php }} - ${{ matrix.stability }} - ${{ matrix.os }}
 
     steps:
       - name: Checkout code
@@ -74,7 +69,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" "nesbot/carbon:${{ matrix.carbon }}" --no-interaction --no-update
+          composer require "illuminate/support:${{ matrix.laravel }}" "ramsey/uuid:${{ matrix.ramsey }}"  --no-interaction --no-update
           composer update --${{ matrix.stability }} --prefer-dist --no-interaction
 
       - name: List Installed Dependencies
