@@ -12,5 +12,9 @@ class Type
 
     public const HTTP = 'Http';
 
+    public const HTTP_CLIENT = 'Http Client';
+
+    public const NOTIFICATION = 'Notification';
+
     public const SCHEDULER = 'Scheduler';
 }
