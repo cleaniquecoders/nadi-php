@@ -2,9 +2,9 @@
 
 namespace CleaniqueCoders\Nadi\Metric;
 
-class OperatingSystem implements Contract
+class OperatingSystem extends Base
 {
-    public static function metrics(): array
+    public function metrics(): array
     {
         return [
             'os.name' => \php_uname('s'),

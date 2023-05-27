@@ -2,9 +2,9 @@
 
 namespace CleaniqueCoders\Nadi\Metric;
 
-class Runtime implements Contract
+class Runtime extends Base
 {
-    public static function metrics(): array
+    public function metrics(): array
     {
         return [
             'runtime.name' => 'PHP',

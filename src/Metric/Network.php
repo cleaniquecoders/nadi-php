@@ -2,9 +2,9 @@
 
 namespace CleaniqueCoders\Nadi\Metric;
 
-class Network implements Contract
+class Network extends Base
 {
-    public static function metrics(): array
+    public function metrics(): array
     {
         return [
             'net.host.name' => \gethostname(),

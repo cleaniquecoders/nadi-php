@@ -2,9 +2,9 @@
 
 namespace CleaniqueCoders\Nadi\Metric;
 
-class System implements Contract
+class System extends Base
 {
-    public static function metrics(): array
+    public function metrics(): array
     {
         // @todo need to cover any custom path in order to cover other frameworks.
         $directory = dirname(__FILE__, 3);

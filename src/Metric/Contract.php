@@ -4,5 +4,7 @@ namespace CleaniqueCoders\Nadi\Metric;
 
 interface Contract
 {
-    public static function metrics(): array;
+    public function metrics(): array;
+
+    public function toArray(): array;
 }

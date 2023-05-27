@@ -2,21 +2,25 @@
 
 namespace CleaniqueCoders\Nadi\Metric;
 
+use CleaniqueCoders\Nadi\Support\Arr;
 use hisorange\BrowserDetect\Parser;
+use Illuminate\Support\Str;
 
-class Browser implements Contract
+class Browser extends Base
 {
-    public static function metrics(): array
+    public function metrics(): array
     {
         $browser = (new Parser(null, request()))->detect()->toArray();
         foreach ($browser as $key => $value) {
             unset($browser[$key]);
             $key = str_replace(['browser', 'is'], '', $key);
-            $key = str_replace('.', '-', $key);
+            $key = Str::snake($key, '.');
             $key = str_replace(['i.e', 'in.app', 'user.agent', 'mobile.grade'], ['ie', 'in-app', 'user-agent', 'mobile-grade'], $key);
             $browser[$key] = $value;
         }
 
-        return $browser;
+        return [
+            'browser' => Arr::undot($browser),
+        ];
     }
 }
