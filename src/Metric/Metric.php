@@ -13,13 +13,18 @@ class Metric
 
     public function toArray(): array
     {
-        return array_merge(
-            $this->metrics,
+        $metrics = array_merge(
             (new Browser)->toArray(),
             (new Network)->toArray(),
             (new OperatingSystem)->toArray(),
             (new Runtime)->toArray(),
             (new System)->toArray(),
         );
+
+        foreach ($this->metrics as $metric) {
+            $metrics = array_merge($metrics, $metric);
+        }
+
+        return $metrics;
     }
 }
