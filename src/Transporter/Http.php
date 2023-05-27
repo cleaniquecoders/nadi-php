@@ -31,18 +31,16 @@ class Http implements Contract
 
         $this->endpoint = $endpoint;
 
-        if (! $this->client) {
-            $this->setClient(
-                new Client([
-                    'headers' => [
-                        'Accept' => 'application/vnd.nadi.'.$version.'+json',
-                        'Authorization' => 'Bearer '.$key,
-                        'Nadi-Token' => $token,
-                        'Content-Type' => 'application/json',
-                    ],
-                ])
-            );
-        }
+        $this->setClient(
+            new Client([
+                'headers' => [
+                    'Accept' => 'application/vnd.nadi.'.$version.'+json',
+                    'Authorization' => 'Bearer '.$key,
+                    'Nadi-Token' => $token,
+                    'Content-Type' => 'application/json',
+                ],
+            ])
+        );
 
         return $this;
     }

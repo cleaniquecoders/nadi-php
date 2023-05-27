@@ -90,11 +90,11 @@ class CoreTest extends TestCase
         ]);
 
         $transporter = new Http();
-        $transporter->setClient($client);
         $transporter->configure([
             'key' => 'unittest-key',
             'token' => 'unittest-token',
         ]);
+        $transporter->setClient($client);
 
         $this->assertTrue($transporter->test());
         $this->assertTrue($transporter->verify());
