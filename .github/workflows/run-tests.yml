@@ -24,7 +24,7 @@ jobs:
           - laravel: 8.*
             ramsey: ^4.7
           - laravel: 7.*
-            ramsey: ^4.7
+            ramsey: ^3.0
           - laravel: 6.*
             ramsey: ^3.0
         exclude:
