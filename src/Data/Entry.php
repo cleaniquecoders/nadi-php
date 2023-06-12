@@ -27,7 +27,7 @@ class Entry
      *
      * @var string|null
      */
-    public $familyHash;
+    public $hashFamily;
 
     /**
      * The currently request metric.
@@ -102,12 +102,12 @@ class Entry
     /**
      * Assign the entry a family hash.
      *
-     * @param  null|string  $familyHash
+     * @param  null|string  $hashFamily
      * @return $this
      */
-    public function withFamilyHash($familyHash)
+    public function setHashFamily($hashFamily)
     {
-        $this->familyHash = $familyHash;
+        $this->hashFamily = $hashFamily;
 
         return $this;
     }
@@ -149,9 +149,9 @@ class Entry
      *
      * @return string|null
      */
-    public function familyHash()
+    public function getHashFamily()
     {
-        return $this->familyHash;
+        return $this->hashFamily;
     }
 
     public function getType()
@@ -175,7 +175,7 @@ class Entry
     {
         return [
             'uuid' => $this->uuid,
-            'family_hash' => $this->familyHash(),
+            'hash_family' => $this->getHashFamily(),
             'type' => $this->getType(),
             'content' => $this->content,
             'meta' => $this->metric->toArray(),

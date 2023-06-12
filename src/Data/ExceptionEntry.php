@@ -36,15 +36,18 @@ class ExceptionEntry extends Entry
     }
 
     /**
-     * Calculate the family look-up hash for the incoming entry.
+     * Assign the entry a family hash.
      *
-     * @return string
+     * @param  null|string  $familyHash
+     * @return $this
      */
-    public function familyHash()
+    public function setHashFamily($familyHash)
     {
-        return md5(
+        return md5(get_class($this->exception).
             $this->exception->getFile().
-            $this->exception->getLine()
+            $this->exception->getLine().
+            $this->exception->getMessage().
+            date('Y-m-d')
         );
     }
 }
