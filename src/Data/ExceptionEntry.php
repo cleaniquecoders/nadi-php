@@ -43,11 +43,13 @@ class ExceptionEntry extends Entry
      */
     public function setHashFamily($familyHash)
     {
-        return md5(get_class($this->exception).
+        $this->hashFamily = md5(get_class($this->exception).
             $this->exception->getFile().
             $this->exception->getLine().
             $this->exception->getMessage().
             date('Y-m-d')
         );
+
+        return $this;
     }
 }
