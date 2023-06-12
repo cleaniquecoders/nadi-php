@@ -74,6 +74,7 @@ class CoreTest extends TestCase
             'Accept' => 'application/vnd.nadi.'.Http::VERSION.'+json',
             'Authorization' => 'Bearer unittest-key',
             'Nadi-Token' => 'unittest-token',
+            'Nadi-Transporter-Id' => '07f44616ac3c5812d914d8ea537b0df70abd69205cc278019547e27bddabf3e1',
             'Content-Type' => 'application/json',
         ];
 

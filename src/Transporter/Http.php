@@ -2,12 +2,15 @@
 
 namespace CleaniqueCoders\Nadi\Transporter;
 
+use CleaniqueCoders\Nadi\Concerns\InteractsWithTransporterId;
 use CleaniqueCoders\Nadi\Exceptions\TransporterException;
 use GuzzleHttp\Client;
 use GuzzleHttp\RequestOptions;
 
 class Http implements Contract
 {
+    use InteractsWithTransporterId;
+
     const VERSION = 'v1';
 
     const ENDPOINT = 'https://nadi.cleaniquecoders.com/api';
@@ -37,6 +40,7 @@ class Http implements Contract
                     'Accept' => 'application/vnd.nadi.'.$version.'+json',
                     'Authorization' => 'Bearer '.$key,
                     'Nadi-Token' => $token,
+                    'Nadi-Transporter-Id' => $this->getTransporterId(),
                     'Content-Type' => 'application/json',
                 ],
             ])

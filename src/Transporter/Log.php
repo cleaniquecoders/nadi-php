@@ -2,8 +2,12 @@
 
 namespace CleaniqueCoders\Nadi\Transporter;
 
+use CleaniqueCoders\Nadi\Concerns\InteractsWithTransporterId;
+
 class Log implements Contract
 {
+    use InteractsWithTransporterId;
+
     protected $prefix = 'nadi-';
 
     protected $path;
@@ -73,6 +77,7 @@ class Log implements Contract
 
     public function log($key, $data = [])
     {
+        $data['transporter_id'] = $this->getTransporterId();
         $log = '['.date('Y-m-d H:i:s').'] - '.$key.' - '.json_encode($data).PHP_EOL;
         file_put_contents(
             $this->getFilePath(),
