@@ -17,4 +17,12 @@ class Type
     public const NOTIFICATION = 'Notification';
 
     public const SCHEDULER = 'Scheduler';
+
+    public const COMMAND = 'Command';
+
+    public const GATE = 'Gate';
+
+    public const LOG = 'Log';
+
+    public const MAIL = 'Mail';
 }
