@@ -2,6 +2,12 @@
 
 All notable changes to `cleaniquecoders/nadi-php` will be documented in this file.
 
+## 1.0.8 - 2023-06-12
+
+- Added Transporter ID
+
+**Full Changelog**: https://github.com/cleaniquecoders/nadi-php/compare/1.0.7...1.0.8
+
 ## 1.0.7 - 2023-06-12
 
 **Full Changelog**: https://github.com/cleaniquecoders/nadi-php/compare/1.0.6...1.0.7
