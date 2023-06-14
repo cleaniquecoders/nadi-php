@@ -54,7 +54,7 @@ class CoreTest extends TestCase
         $this->expectException(TransporterException::class);
         $this->expectExceptionMessage('Missing API Token');
 
-        $transporter = (new Http());
+        $transporter = new Http();
         $transporter->configure();
 
         $this->expectException(TransporterException::class);

@@ -14,6 +14,8 @@ class Log implements Contract
 
     protected $configurations = [];
 
+    protected $storage = [];
+
     public function configure(array $configurations = []): self
     {
         $this->configurations = $configurations;
@@ -55,9 +57,16 @@ class Log implements Contract
         return $this->getPath().DIRECTORY_SEPARATOR.$this->getFileName();
     }
 
-    public function send(array $data)
+    public function store(array $data): self
     {
-        return $this->log('nadi.log', $data);
+        $this->storage[] = $data;
+
+        return $this;
+    }
+
+    public function send()
+    {
+        return $this->log('nadi.log', $this->storage);
     }
 
     public function test()

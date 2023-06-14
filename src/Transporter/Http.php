@@ -21,6 +21,8 @@ class Http implements Contract
 
     protected $configurations = [];
 
+    protected $storage = [];
+
     public function configure(array $configurations = []): self
     {
         $this->configurations = $configurations;
@@ -61,6 +63,18 @@ class Http implements Contract
         return $this->client;
     }
 
+    public function store(array $data): self
+    {
+        $this->storage[] = $data;
+
+        return $this;
+    }
+
+    public function send()
+    {
+        return $this->client->post($this->url('record'), [RequestOptions::JSON => $this->storage]);
+    }
+
     public function test()
     {
         $response = $this->client->post($this->url('test'));
@@ -73,11 +87,6 @@ class Http implements Contract
         $response = $this->client->post($this->url('verify'));
 
         return $response->getStatusCode() == 200;
-    }
-
-    public function send(array $data)
-    {
-        return $this->client->post($this->url('record'), [RequestOptions::JSON => $data]);
     }
 
     public function url(string $endpoint)

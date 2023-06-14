@@ -8,7 +8,9 @@ interface Contract
 
     public function getTransporterId(): string;
 
-    public function send(array $data);
+    public function store(array $data): self;
+
+    public function send();
 
     public function test();
 
