@@ -59,14 +59,24 @@ class Log implements Contract
 
     public function store(array $data): self
     {
-        $this->storage[] = $data;
+        array_push($this->storage, $data);
 
         return $this;
     }
 
     public function send()
     {
-        return $this->log('nadi.log', $this->storage);
+        $data = $this->storage;
+        $filename = $this->getTransporterId();
+        $filepath = $this->getPath().DIRECTORY_SEPARATOR.$filename.'.json';
+        $content = json_encode($data, JSON_PRETTY_PRINT|JSON_FORCE_OBJECT);
+        file_put_contents(
+            $filepath,
+            $content,
+            FILE_APPEND
+        );
+
+        return true;
     }
 
     public function test()
