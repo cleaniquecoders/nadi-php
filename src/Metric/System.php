@@ -15,10 +15,32 @@ class System extends Base
         }
 
         return [
-            'system.server.cpu' => \sys_getloadavg(),
+            'system.server.cpu' => $this->getCpu(),
             'system.server.memory.peak' => \memory_get_peak_usage(true),
             'system.server.memory.usage' => \memory_get_usage(true),
             'system.server.storage' => \disk_total_space($directory),
         ];
+    }
+
+    public function getCpu()
+    {
+        if (! strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+            return \sys_getloadavg();
+        }
+
+        if (! extension_loaded('com_dotnet')) {
+            return [];
+        }
+
+        $wmi = new \COM('winmgmts:{impersonationLevel=impersonate}!\\\\.\\root\\cimv2');
+        $query = 'SELECT LoadPercentage FROM Win32_Processor';
+        $loadPercentage = $wmi->ExecQuery($query);
+
+        $load = [];
+        foreach ($loadPercentage as $processor) {
+            $load[] = $processor->LoadPercentage;
+        }
+
+        return $load;
     }
 }
