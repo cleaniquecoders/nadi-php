@@ -2,6 +2,12 @@
 
 All notable changes to `cleaniquecoders/nadi-php` will be documented in this file.
 
+## 1.1.1 - 2023-06-21
+
+- Fix get CPU usage on WIndows
+
+**Full Changelog**: https://github.com/cleaniquecoders/nadi-php/compare/1.1.0...1.1.1
+
 ## 1.1.0 - 2023-06-14
 
 - Allow sending issues by bulk by introducing storage.
