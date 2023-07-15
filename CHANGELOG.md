@@ -2,6 +2,12 @@
 
 All notable changes to `cleaniquecoders/nadi-php` will be documented in this file.
 
+## 1.1.2 - 2023-07-15
+
+- Added gitignore by default 6d3322e
+
+**Full Changelog**: https://github.com/cleaniquecoders/nadi-php/compare/1.1.1...1.1.2
+
 ## 1.1.1 - 2023-06-21
 
 - Fix get CPU usage on WIndows
