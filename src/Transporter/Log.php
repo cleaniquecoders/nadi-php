@@ -38,6 +38,7 @@ class Log implements Contract
     {
         if (! file_exists($path)) {
             mkdir($path, 0770, true);
+            file_put_contents($path.DIRECTORY_SEPARATOR.'.gitignore', '*'.PHP_EOL.'!.gitignore');
         }
         $this->path = $path;
     }

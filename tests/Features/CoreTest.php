@@ -34,14 +34,20 @@ class CoreTest extends TestCase
     public function test_custom_log_transporter(): void
     {
         $transporter = (new Log());
+        $path = dirname(__FILE__, 2).DIRECTORY_SEPARATOR.'logs';
+        $gitignore_path = $path.DIRECTORY_SEPARATOR.'.gitignore';
         $transporter->configure([
-            'path' => dirname(__FILE__, 2).DIRECTORY_SEPARATOR.'logs',
+            'path' => $path,
         ]);
+
+        $this->assertDirectoryExists($path);
+        $this->assertFileExists($gitignore_path);
+        $this->assertEquals('*'.PHP_EOL.'!.gitignore', file_get_contents($gitignore_path));
 
         $this->assertTrue($transporter->test());
 
         $this->assertTrue($transporter->verify());
-
+        unlink($gitignore_path);
         unlink($transporter->getFilePath());
         rmdir($transporter->getPath());
     }
