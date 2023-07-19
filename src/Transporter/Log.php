@@ -70,7 +70,7 @@ class Log implements Contract
         $data = $this->storage;
         $filename = $this->getTransporterId();
         $filepath = $this->getPath().DIRECTORY_SEPARATOR.$filename.'.json';
-        $content = json_encode($data, JSON_PRETTY_PRINT | JSON_FORCE_OBJECT);
+        $content = json_encode($data, JSON_PRETTY_PRINT | JSON_OBJECT_AS_ARRAY);
         file_put_contents(
             $filepath,
             $content,
