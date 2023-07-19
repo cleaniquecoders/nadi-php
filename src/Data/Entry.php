@@ -215,7 +215,7 @@ class Entry
                     $this->title = '';
                     break;
                 case Type::COMMAND:
-                    $this->title = '';
+                    $this->title = 'Failed command for '.data_get($this->getContent(), 'content.command');;
                     break;
                 case Type::GATE:
                     $this->title = '';
