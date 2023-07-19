@@ -2,6 +2,10 @@
 
 All notable changes to `cleaniquecoders/nadi-php` will be documented in this file.
 
+## 1.2.1 - 2023-07-19
+
+**Full Changelog**: https://github.com/cleaniquecoders/nadi-php/compare/1.2.0...1.2.1
+
 ## 1.1.3 - 2023-07-15
 
 - Added title & description from Entry 9f31ca4
