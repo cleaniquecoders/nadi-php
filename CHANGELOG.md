@@ -2,6 +2,13 @@
 
 All notable changes to `cleaniquecoders/nadi-php` will be documented in this file.
 
+## 1.1.3 - 2023-07-15
+
+- Added title & description from Entry 9f31ca4
+- Added Type Exception 5fd6cf5
+
+**Full Changelog**: https://github.com/cleaniquecoders/nadi-php/compare/1.1.2...1.1.3
+
 ## 1.1.2 - 2023-07-15
 
 - Added gitignore by default 6d3322e
