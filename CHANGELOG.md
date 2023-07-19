@@ -2,6 +2,16 @@
 
 All notable changes to `cleaniquecoders/nadi-php` will be documented in this file.
 
+## 1.2.0 - 2023-07-19
+
+### What's Changed
+
+- b2d2d26 Force JSON Object to Array
+
+> Starting this version, the response will be sent to the Nadi Collector instead of Nadi API.
+
+**Full Changelog**: https://github.com/cleaniquecoders/nadi-php/compare/1.1.3...1.2.0
+
 ## 1.1.3 - 2023-07-15
 
 - Added title & description from Entry 9f31ca4
